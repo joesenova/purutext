@@ -1,0 +1,57 @@
+<!--
+
+ /**
+ *
+ * @author  Johan Kasselman
+ * @since   27-01-2016
+ *
+ * puruText: Simple chatRoom with history and users etc.
+ */
+
+ -->
+<head>
+  <title>Simple Instant messaging Application!</title>
+    <script scr="moment.js"></script>
+</head>
+
+<body>
+    <div class="container"
+       ng-controller="MessagesListCtrl">
+
+        <header>
+            <h1>Messages</h1>
+
+            <login-buttons></login-buttons>
+
+            <select class="form-control" name="repeatRoom" id="repeatRoom" ng-model="selectedRoom" ng-show="$root.currentUser">
+                <option ng-repeat="room in rooms" value="{{room.id}}">{{room.name}}</option>
+            </select>
+            <br />
+
+        </header>
+        <section>
+            <ul style="background-color: #FFFFFF" ng-show="!$root.currentUser">
+                <li>Please Sign in to start chatting!<br>
+                If you're not a member already please sign up.</li>
+            </ul>
+
+            <ul id="messageContainer" ng-show="$root.currentUser">
+                <li class="triangle-border" ng-repeat="message in messages">
+                    <div style="float: right;">
+                        <button class="delete" ng-click="deleteMesasage(message._id, message.owner)" ng-show="$root.currentUser._id==message.owner" title="Delete">&times;</button>
+                    </div>
+
+                    <span class="text">{{message.text}}</span>
+                    <span class="messageDateTime">{{formatRawDate(message.createdAt)}}<br />by <b class="messageUsername">{{message.username}}</b></span>
+                </li>
+            </ul>
+        </section>
+        <div id="messageBox">
+            <form class="new-message" ng-submit="addMessage(newMessage); newMessage='';" ng-show="$root.currentUser">
+              <input id="messageInput" ng-model="newMessage" type="text"
+                   name="text" placeholder="Type to add new message" />
+            </form>
+        </div>
+
+    </div>
+</body>
