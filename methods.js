@@ -21,7 +21,7 @@ if (Meteor.isServer) {
 
         deleteMessage: function (messageId, owner) {
 
-            if(Meteor.userId() == owner){
+            if(Meteor.userId() == owner || Meteor.user().username == 'admin'){
                 //console.log('delete message!!!');
                 Messages.remove({
                     _id: messageId

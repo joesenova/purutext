@@ -40,6 +40,8 @@ if (Meteor.isClient) {
                 {name: "Nerds!", id: "3"}
 
             ];
+
+
             //--------------------------------------------------------
             $scope.addMessage = function(newMessage) {
                 if(newMessage > ''){
@@ -56,7 +58,12 @@ if (Meteor.isClient) {
             };
             //--------------------------------------------------------
             $scope.deleteMesasage = function(messageId, owner){
-                Meteor.call("deleteMessage", messageId, owner);
+                if(Meteor.userId() == owner || Meteor.user().username == 'admin'){
+                    Meteor.call("deleteMessage", messageId, owner);    
+                }else{
+                    //alert('Access denied!');
+                }
+                
             };
             //--------------------------------------------------------
             $scope.$watch('selectedRoom', function(newRoom){
@@ -68,7 +75,7 @@ if (Meteor.isClient) {
                     $scope.messages = $meteor.collection( function() {
                         //console.log('Reload messages!!!');
 
-                        return Messages.find({roomid: newRoom}, { sort: { createdAt: 1 } });
+                        return Messages.find({roomid: newRoom}, { sort: { createdAt: 1 } }).limit( 50 );
                     });
                 }
 

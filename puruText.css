@@ -19364,6 +19364,7 @@ body {
 .container {
     background-image: url("http://newrelic.com/assets/pages/mobile_monitoring_3/network-features-strokes.png");
     background-repeat: repeat;
+    background-position: fixed;
     max-width: 600px;
     margin: 0 auto;
     min-height: 100%;
