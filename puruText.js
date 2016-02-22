@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     });
 
     //--------------------------------------------------------
-    angular.module('puruText',['angular-meteor', 'accounts.ui']);
+    angular.module('puruText',['angular-meteor', 'accounts.ui', 'angular-meteor.auth']);
 
     //--------------------------------------------------------
     function onReady() {
@@ -75,7 +75,7 @@ if (Meteor.isClient) {
                     $scope.messages = $meteor.collection( function() {
                         //console.log('Reload messages!!!');
 
-                        return Messages.find({roomid: newRoom}, { sort: { createdAt: 1 } }).limit( 50 );
+                        return Messages.find({roomid: newRoom}, { sort: { createdAt: 1 } });
                     });
                 }
 
