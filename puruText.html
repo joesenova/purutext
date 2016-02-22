@@ -36,7 +36,7 @@
             </ul>
 
             <ul id="messageContainer" ng-show="$root.currentUser">
-                <li class="triangle-border" ng-repeat="message in messages">
+                <li ng-class="$root.currentUser._id==message.owner ? 'triangle-border-right textCurrentUser' : 'triangle-border-left textOther'" ng-repeat="message in messages">
                     <div style="float: right;">
                         <button class="delete" ng-click="deleteMesasage(message._id, message.owner)" ng-show="$root.currentUser._id==message.owner || $root.currentUser.username=='admin'" title="Delete">&times;</button>
                     </div>
