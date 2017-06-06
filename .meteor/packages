@@ -21,3 +21,4 @@ dotansimha:accounts-ui-angular
 momentjs:moment
 twbs:bootstrap
 angular-meteor-auth
+angular-sanitize
