@@ -41,7 +41,7 @@
                         <button class="delete" ng-click="deleteMesasage(message._id, message.owner)" ng-show="$root.currentUser._id==message.owner || $root.currentUser.username=='admin'" title="Delete">&times;</button>
                     </div>
 
-                    <span class="text">{{message.text}}</span>
+                    <span class="text">{{$sce.trustAsHtml(message.text)}}</span>
                     <span class="messageDateTime">{{formatRawDate(message.createdAt)}}<br />by <b class="messageUsername">{{message.username}}</b></span>
                 </li>
             </ul>
