@@ -28,10 +28,10 @@ if (Meteor.isClient) {
     else
         angular.element(document).ready(onReady);
     //--------------------------------------------------------
-    angular.module('puruText')
+    angular.module('puruText', ['ngSanitize'])
         .value('moment', moment)
-        .controller('MessagesListCtrl', ['$scope', '$meteor', '$interval', 'moment',
-        function ($scope, $meteor, $interval) {
+        .controller('MessagesListCtrl', ['$scope', '$meteor', '$sce', '$interval', 'moment',
+        function ($scope, $meteor, $sce, $interval) {
 
 
             $scope.rooms = [
