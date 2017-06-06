@@ -30,8 +30,8 @@ if (Meteor.isClient) {
     //--------------------------------------------------------
     angular.module('puruText')
         .value('moment', moment)
-        .controller('MessagesListCtrl', ['$scope', '$meteor', '$sce', '$interval', 'moment',
-        function ($scope, $meteor, $sce, $interval) {
+        .controller('MessagesListCtrl', ['$scope', '$meteor', '$interval', 'moment',
+        function ($scope, $meteor, $interval) {
 
 
             $scope.rooms = [
