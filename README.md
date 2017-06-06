@@ -1,3 +1,3 @@
 # purutext
 
-See demo here: [PURUText | Instant Messaging](purutext.herokuapp.com)
+See demo here: [PURUText | Instant Messaging](https://purutext.herokuapp.com/)
