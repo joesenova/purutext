@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     });
 
     //--------------------------------------------------------
-    angular.module('puruText',['angular-meteor', 'accounts.ui', 'angular-meteor.auth']);
+    angular.module('puruText',['angular-meteor', 'accounts.ui', 'angular-meteor.auth', 'ngSanitize']);
 
     //--------------------------------------------------------
     function onReady() {
@@ -28,7 +28,7 @@ if (Meteor.isClient) {
     else
         angular.element(document).ready(onReady);
     //--------------------------------------------------------
-    angular.module('puruText', ['ngSanitize'])
+    angular.module('puruText')
         .value('moment', moment)
         .controller('MessagesListCtrl', ['$scope', '$meteor', '$sce', '$interval', 'moment',
         function ($scope, $meteor, $sce, $interval) {
