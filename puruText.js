@@ -45,14 +45,14 @@ if (Meteor.isClient) {
             //--------------------------------------------------------
             $scope.addMessage = function(newMessage) {
                 if(newMessage > ''){
-                    $scope.messages.push( {
-                            text: newMessage,                  // message text
-                            createdAt: new Date(),             // current time
-                            owner: Meteor.userId(),            // _id of logged in user
-                            username: Meteor.user().username,   // username of logged in user
-                            roomid: $scope.roomId
-                        }
-                    );
+//                     $scope.messages.push( {
+//                             text: newMessage,                  // message text
+//                             createdAt: new Date(),             // current time
+//                             owner: Meteor.userId(),            // _id of logged in user
+//                             username: Meteor.user().username,   // username of logged in user
+//                             roomid: $scope.roomId
+//                         }
+//                     );
                     Meteor.call("insertMessage", newMessage, $scope.roomId);
                 }
             };
