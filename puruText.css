@@ -19722,10 +19722,12 @@ login-buttons {
 .textOther{
     width: 80%;
     float: left;   
+    background-color: #f4faff;
 }
 
 .textCurrentUser{
     width: 80%;
     float: right;
     border: 2px solid #09D261;
+    background-color: #f4fff9;
 }
